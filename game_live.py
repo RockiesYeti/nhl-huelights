@@ -2,7 +2,7 @@
 import requests
 import json
 import time
-import siren
+from siren import sirenLight
 
 def game_live(gameid):
     cur_goal=0
