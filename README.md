@@ -1,1 +1,3 @@
 # nhl-huelights
+
+This is just some code to make my huelights flash when a certain team scores...
