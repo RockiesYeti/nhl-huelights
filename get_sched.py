@@ -22,15 +22,16 @@ for i in range(len(teams['teams'])):
 if teamid is None:
     print("Invalid Teamname")
     exit
-try:
-    sched_response = requests.get('https://statsapi.web.nhl.com/api/v1/schedule?teamId='+teamid)
-    sched=json.loads(sched_response.text)
+
+sched_response = requests.get('https://statsapi.web.nhl.com/api/v1/schedule?teamId='+teamid)
+sched=json.loads(sched_response.text)
+if len(sched['dates']) != 0:
     gameid=str(sched['dates'][0]['games'][0]['gamePk'])
-except:
+    pregame(gameid)
+    game_live(gameid, teamid)
+else:
     print("No Game Scheduled for "+team)
-    sys.exit(0)
-pregame(gameid)
-game_live(gameid, teamid)
+    
 
 
 
