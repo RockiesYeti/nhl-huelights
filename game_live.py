@@ -5,10 +5,10 @@ import time
 from siren import sirenLight
 
 def game_live(gameid, teamid):
-    if teamid==21:
+    if teamid=='21':
         color=62779
-    elif teamid==14:
-        color=46014
+    elif teamid=='14':
+        color=45506
     else:
         color=0
     cur_goal=0
@@ -16,7 +16,7 @@ def game_live(gameid, teamid):
     while game_is_on:
         game_response = requests.get('https://statsapi.web.nhl.com/api/v1/game/'+gameid+'/feed/live')
         game=json.loads(game_response.text)
-        if game['liveData']['linescore']['teams']['home']['team']['id']==teamid:
+        if str(game['liveData']['linescore']['teams']['home']['team']['id'])==teamid:
             if game['liveData']['linescore']['teams']['home']['goals'] > cur_goal:
                 print("We Scored!!")
                 sirenLight(color)
