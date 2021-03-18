@@ -5,9 +5,9 @@ import time
 from siren import sirenLight
 
 def game_live(gameid, teamid):
-    if teamid=21:
+    if teamid==21:
         color=62779
-    elif teamid=14:
+    elif teamid==14:
         color=46014
     else:
         color=0
