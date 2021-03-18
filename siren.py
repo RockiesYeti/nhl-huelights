@@ -8,7 +8,8 @@ requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
 def sirenLight(color):
     body={
-    "on": True
+    "on": True,
+    "hue": color
     }
     putr=requests.put("https://192.168.86.25/api/asmfBcBwWVeC9IpGjfXLaz6tKGAGIrp2QJkJOKwe/lights/4/state", json.dumps(body), verify=False)
     putr=requests.put("https://192.168.86.25/api/asmfBcBwWVeC9IpGjfXLaz6tKGAGIrp2QJkJOKwe/lights/5/state", json.dumps(body), verify=False)
@@ -16,11 +17,11 @@ def sirenLight(color):
     for i in range(0,10):
         if i%2==0:
             body={
-                "hue": color
+                "sat": 255
             }
         else:
             body={
-                "hue": 8217
+                "sat": 0
             }
         putr=requests.put("https://192.168.86.25/api/asmfBcBwWVeC9IpGjfXLaz6tKGAGIrp2QJkJOKwe/lights/4/state", json.dumps(body), verify=False)
         putr=requests.put("https://192.168.86.25/api/asmfBcBwWVeC9IpGjfXLaz6tKGAGIrp2QJkJOKwe/lights/5/state", json.dumps(body), verify=False)
