@@ -16,9 +16,7 @@ def pregame(gameid):
         secs_gametime=int((sec_gametime%3600)%60)
         print("{} hours {} min {} sec until Puck Drop".format(hours_gametime,mins_gametime,secs_gametime ))
         if  int(game['gameData']['status']['codedGameState']) > 2 and int(game['gameData']['status']['codedGameState']) < 7:
-            pregame=False
-            game_is_on=True
+            pregame=False            
         else:
             pregame=True
-            game_is_on=False
             time.sleep(300)

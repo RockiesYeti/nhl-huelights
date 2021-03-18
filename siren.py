@@ -6,7 +6,7 @@ from urllib3.exceptions import InsecureRequestWarning
 # Suppress only the single warning from urllib3 needed.
 requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
-def sirenLight():
+def sirenLight(color):
     body={
     "on": True
     }
@@ -16,11 +16,11 @@ def sirenLight():
     for i in range(0,10):
         if i%2==0:
             body={
-                "hue": 33
+                "hue": color
             }
         else:
             body={
-                "hue": 42000
+                "hue": 8217
             }
         putr=requests.put("https://192.168.86.25/api/asmfBcBwWVeC9IpGjfXLaz6tKGAGIrp2QJkJOKwe/lights/4/state", json.dumps(body), verify=False)
         putr=requests.put("https://192.168.86.25/api/asmfBcBwWVeC9IpGjfXLaz6tKGAGIrp2QJkJOKwe/lights/5/state", json.dumps(body), verify=False)
